@@ -20,7 +20,11 @@ def devQAStaging() {
         }
     })
     stage name: 'Staging', concurrency: 1
-    deploy 'target/x.war', 'staging'
+    node {
+        unarchive mapping: ['target/x.war' : 'x.war']    
+        deploy 'target/x.war', 'staging'
+        echo 'Deployed to http://localhost:8888/staging/'
+    }
 }
 
 def production() {
