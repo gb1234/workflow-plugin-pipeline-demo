@@ -43,7 +43,7 @@ def production() {
 }
 
 def deploy(war, id) {
-    sh "cp ${war} /tmp/webapps/${id}.war"
+    sh "cp x.war /tmp/webapps/${id}.war"
 }
 
 def undeploy(id) {
